@@ -1,7 +1,5 @@
 {
     "liveServer.settings.CustomBrowser": "chrome",
-    "liveServer.settings.wait": 100,
-    "fiveServer.browser": [
-        "chrome"
-    ]
+    "liveServer.settings.port": 5500,
+    "liveServer.settings.root": "Project root"
 }
