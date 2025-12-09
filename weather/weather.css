@@ -26,6 +26,10 @@ button[type="submit"]{
     border-radius: 10px;
     background-color: rgb(47, 183, 47);
     color: hsla(0, 0%, 100%, 0.93);
+    cursor: pointer;
+}
+button:active{
+    color: black;
 }
 .card{
     display: flex;
@@ -73,4 +77,9 @@ button[type="submit"]{
     font-size: 2.5rem;
     font-weight: bold;
     color: hsla(0, 20%, 5%, 0.702);
+}
+body{
+    border: 3px solid black;
+    border-radius: 12px;
+    padding-bottom: 20px;
 }

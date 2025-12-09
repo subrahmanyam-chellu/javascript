@@ -2,6 +2,44 @@ const weatherForm=document.querySelector(".weatherForm");
 const card=document.querySelector(".card");
 const cityInput=document.querySelector(".cityInput");
 const apiKey="adb87b07193112a14d186a201038ae37";
+let lat;
+let lon;
+
+document.addEventListener("DOMContentLoaded", async () => {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            async (position) => {
+                const lat = position.coords.latitude;
+                const lon = position.coords.longitude;
+                
+                try {
+                    // Reverse geocoding to get city name
+                    const geoUrl = `http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${apiKey}`;
+                    const geoResponse = await fetch(geoUrl);
+                    
+                    if (!geoResponse.ok) {
+                        throw new Error("Could not fetch location data");
+                    }
+                    
+                    const geoData = await geoResponse.json();
+                    const cityName = geoData[0]?.name || 'Unknown City';
+                    
+                    // Get weather data for the city
+                    const weatherData = await getWeatherData(cityName);
+                    displayWeather(weatherData);
+                    
+                } catch (error) {
+                    errorDisplay(error.message);
+                }
+            },
+            (error) => {
+                errorDisplay(getGeolocationErrorMessage(error.code));
+            }
+        );
+    } else {
+        errorDisplay("Geolocation is not supported by this browser");
+    }
+});
 
 
 weatherForm.addEventListener("submit",async event=>{
@@ -23,7 +61,7 @@ weatherForm.addEventListener("submit",async event=>{
 })
 
 async function getWeatherData(city){
-
+    
     const url=`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
     
     const response= await fetch(url);
@@ -31,6 +69,8 @@ async function getWeatherData(city){
         throw new Error("we could'nt fetch data");
     }
     return await response.json();
+   
+   
 }
 
 function getEmoji(id){
@@ -101,3 +141,6 @@ function displayWeather(data){
     card.append(emojiDisplay);
 
 }
+
+
+
