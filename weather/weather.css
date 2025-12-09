@@ -1,0 +1,76 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: sans-serif, 'Times New Roman', Times, serif;
+    background-color: hsl(0, 0%, 85%);
+    margin: 0px;
+}
+.weatherForm{
+    margin-top: 20px;
+}
+.cityInput{
+     width: 300px;
+     margin: 10px;
+     border: 2px solid hsla(0, 0%, 0%, 0.327);
+     padding-left: 10px;
+     font-weight: bold;
+     border-radius: 10px;
+     font-size: 2rem;
+}
+button[type="submit"]{
+    width: 200px;
+    font-weight: bold;
+    font-size: 2rem;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: rgb(47, 183, 47);
+    color: hsla(0, 0%, 100%, 0.93);
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: 5px solid hsla(0, 0%, 0%, 0.546); */
+    box-shadow: 5px 5px 5px hsla(0, 10%, 0%, 0.53);
+    border-radius: 12px;
+    min-width: 400px;
+    padding-left: 40px;
+    padding-right: 40px;
+    background: linear-gradient(180deg, hsla(190, 39%, 75%, 0.743), hsla(12, 120%, 65%, 0.77));
+}
+.city{
+    font-size: 3rem;
+    font-weight: bold;
+    color: hsla(0, 20%, 5%, 0.702);
+    /* padding-bottom: 0px;  */
+}
+.temp{
+    font-size: 3rem;
+    font-weight: bold;
+    color: hsla(0, 20%, 5%, 0.702);
+    /* padding-bottom: 10px;  */
+}
+.humidity{
+    font-size: 2rem;
+    font-weight: bold;
+    color: hsla(318, 55%, 27%, 0.624);
+    /* padding-bottom: 5px;  */
+}
+.desc{
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: hsla(0, 94%, 12%, 0.611);
+    font-style: italic; 
+}
+.emoji{
+    font-size: 8rem;
+    font-weight: bold;
+    color: hsla(0, 20%, 5%, 0.702);
+    /* padding-bottom: 10px;  */
+}
+.error{
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: hsla(0, 20%, 5%, 0.702);
+}
