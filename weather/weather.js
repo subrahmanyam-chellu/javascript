@@ -13,16 +13,16 @@ document.addEventListener("DOMContentLoaded", async () => {
                 const lon = position.coords.longitude;
                 
                 try {
-                    // Reverse geocoding to get city name
-                    const geoUrl = `http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${apiKey}`;
-                    const geoResponse = await fetch(geoUrl);
                     
-                    if (!geoResponse.ok) {
+                    const Url = `http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${apiKey}`;
+                    const Response = await fetch(Url);
+                    
+                    if (!Response.ok) {
                         throw new Error("Could not fetch location data");
                     }
                     
-                    const geoData = await geoResponse.json();
-                    const cityName = geoData[0]?.name || 'Unknown City';
+                    const Data = await Response.json();
+                    const cityName = Data[0]?.name || 'Unknown City';
                     
                     // Get weather data for the city
                     const weatherData = await getWeatherData(cityName);
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 }
             },
             (error) => {
-                errorDisplay(getGeolocationErrorMessage(error.code));
+                errorDisplay(error);
             }
         );
     } else {
