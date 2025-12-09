@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 
                 try {
                     
-                    const Url = `http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${apiKey}`;
+                    const Url = `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${apiKey}`;
                     const Response = await fetch(Url);
                     
                     if (!Response.ok) {
